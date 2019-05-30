@@ -34,13 +34,24 @@ def remove_adjacent(nums):
 
 
 def linear_merge(list1, list2):
-    new_list = []
-    for x in list1:
-        new_list.append(x)
-    for y in list2:
-        new_list.append(y)
-    new_list = sorted(new_list)
-    return new_list
+    result = []
+    while len(list1) and len(list2):
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+
+    result.extend(list1)
+    result.extend(list2)
+    return result
+    
+    # new_list = []
+    # for x in list1:
+    #     new_list.append(x)
+    # for y in list2:
+    #     new_list.append(y)
+    # new_list = sorted(new_list)
+    # return new_list
 
 
 # Simple provided test() function used in main() to print
